@@ -1,5 +1,5 @@
 function [kph,kf]=gen_Kalman_coefs(R,Q,S0,F,G,H,N)
-K=zeros(N,2);
+kph=zeros(N,2);
 S=S0;
 for n=0:N-1
     S0=(F*S*transpose(F))+Q; %Covariance Matrix of the prediction error
@@ -22,6 +22,6 @@ title(ax2,'Frequency Gain')
 ylabel(ax2,'KF')
 xlabel(ax2,'N');
 grid on;
-kph=P(1);
-kf=P(2);
+kph=P(128,1);
+kf=P(128,2);
 end
